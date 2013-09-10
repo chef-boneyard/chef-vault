@@ -13,4 +13,5 @@ suites:
 - name: default
   run_list:
   - recipe[chef-vault]
+  - recipe[chef-vault::test]
   attributes: {}

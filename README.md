@@ -14,7 +14,16 @@ that helps manage encrypted data bags.
 
 This cookbook should work on any system/platform that is supported by Chef.
 
-## Installation
+## Helper Method
+
+This cookbook provides a nice helper method for the Chef Recipe DSL so you can
+write:
+
+    chef_vault_item("secrets", "dbpassword")
+
+Instead of:
+
+    ChefVault::Item.load("secrets", "dbpassword")
 
 ## Attributes
 
@@ -29,8 +38,17 @@ Include the recipe before using the Chef Vault library in recipes.
     include_recipe 'chef-vault'
     secret_stuff = ChefVault::Item.load("secrets", "a_secret")
 
+Or, use the helper library method:
+
+    secret_stuff = chef_vault_item("secrets", "a_secret")
+
 If you need a specific version of the `chef-vault` RubyGem, then
 specify it with the attribute, `node['chef-vault']['version']`.
+
+## Contributing
+
+This repository contains a `CONTRIBUTING` file that describes the
+contribution process for Opscode cookbooks.
 
 ## License and Authors
 
