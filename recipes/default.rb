@@ -20,6 +20,7 @@
 
 chef_gem 'chef-vault' do
   version node['chef-vault']['version']
+  options "--clear-sources --source #{node['chef-vault']['source']}"
 end
 
 require 'chef-vault'
