@@ -19,3 +19,4 @@
 #
 # Set this if you need a specific version of chef-vault
 default['chef-vault']['version'] = nil
+default['chef-vault']['source'] = 'http://rubygems.org'
