@@ -1,5 +1,6 @@
 begin
-  chef_vault_item("secrets", "dbpassword")
+  secret = chef_vault_item("secrets", "dbpassword")
+  Chef::Log.info("#{cookbook_name}::#{recipe_name} secret: `#{secret.inspect}`")
   return
 rescue Chef::Exceptions::InvalidDataBagPath
   Chef::Log.warn("I expected an invalid data bag path, which comes from ChefVault,")

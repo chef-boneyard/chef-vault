@@ -34,7 +34,11 @@ class Chef
         Chef::Log.warn("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.")
       end
 
-      ChefVault::Item.load(bag, item)
+      begin
+        ChefVault::Item.load(bag, item)
+      rescue
+        Chef::DataBagItem.load(bag, item)
+      end
     end
   end
 end
