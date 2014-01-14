@@ -12,12 +12,13 @@ that helps manage encrypted data bags.
 
 ## Requirements
 
-This cookbook should work on any system/platform that is supported by Chef.
+This cookbook should work on any system/platform that is supported by
+Chef.
 
 ## Helper Method
 
-This cookbook provides a nice helper method for the Chef Recipe DSL so you can
-write:
+This cookbook provides a nice helper method for the Chef Recipe DSL so
+you can write:
 
     chef_vault_item("secrets", "dbpassword")
 
@@ -25,11 +26,23 @@ Instead of:
 
     ChefVault::Item.load("secrets", "dbpassword")
 
+This has logic to allow for development and testing of recipes, see
+__Attributes__ below.
+
 ## Attributes
 
 * `node['chef-vault']['version']` - Specify a version of the
   chef-vault gem if required. Default is `nil`, so the latest version
   will be installed.
+
+The following attribute is special and not specifically related to
+this cookbook, but is used in the helper.
+
+* `node['dev_mode']` - If this is true, `chef_vault_item` will attempt
+  to load the specified item as a regular Data Bag Item with
+  `Chef::DataBagItem.load`. This is intended to be used only for
+  testing, and not as a fall back to avoid issues loading encrypted
+  items.
 
 ## Usage
 
@@ -48,12 +61,13 @@ specify it with the attribute, `node['chef-vault']['version']`.
 ## Contributing
 
 This repository contains a `CONTRIBUTING` file that describes the
-contribution process for Opscode cookbooks.
+contribution process for Chef cookbooks.
 
 ## License and Authors
 
-- Author: Joshua Timberman <joshua@opscode.com>
+- Author: Joshua Timberman <joshua@getchef.com>
 - Copyright (c) 2013 Opscode, Inc. <legal@opscode.com>
+- Copyright (c) 2014 Chef Software, Inc. <legal@getchef.com>
 
 License:: Apache License, Version 2.0
 

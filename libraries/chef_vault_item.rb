@@ -5,6 +5,7 @@
 # Author: Joshua Timberman <joshua@opscode.com>
 #
 # Copyright (c) 2013, Opscode, Inc.
+# Copyright (c) 2014, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +28,8 @@ class Chef
     # Instead of:
     #   ChefVault::Item.load("secrets", "dbpassword")
     #
+    # optionally set `node['dev_mode']` to true to fall back to normal
+    # data bag item loading.
     def chef_vault_item(bag, item)
       begin
         require 'chef-vault'
@@ -34,10 +37,10 @@ class Chef
         Chef::Log.warn("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.")
       end
 
-      begin
-        ChefVault::Item.load(bag, item)
-      rescue
+      if node['dev_mode']
         Chef::DataBagItem.load(bag, item)
+      else
+        ChefVault::Item.load(bag, item)
       end
     end
   end
