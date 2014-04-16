@@ -39,6 +39,8 @@ class Chef
 
       if node['dev_mode']
         Chef::DataBagItem.load(bag, item)
+      elsif node['disable_chef_vault']
+        Chef::EncryptedDataBagItem.load(bag, item)
       else
         ChefVault::Item.load(bag, item)
       end

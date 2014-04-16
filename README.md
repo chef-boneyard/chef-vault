@@ -44,6 +44,11 @@ this cookbook, but is used in the helper.
   testing, and not as a fall back to avoid issues loading encrypted
   items.
 
+* `node['disable_chef_vault']` - If this is true, `chef_vault_item` will attempt
+  to load the specified item as an Encrypted Data Bag Item with
+  `Chef::EncryptedDataBagItem.load`. This is intended to allow both usages of 
+  encrypted data bags with one solution.
+
 ## Usage
 
 Include the recipe before using the Chef Vault library in recipes.
