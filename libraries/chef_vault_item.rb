@@ -20,28 +20,29 @@
 # limitations under the License.
 
 
-class Chef
-  class Recipe
-    # This is a nice helper method for the Chef Recipe DSL so you can
-    # write:
-    #   chef_vault_item("secrets", "dbpassword")
-    # Instead of:
-    #   ChefVault::Item.load("secrets", "dbpassword")
-    #
-    # Falls back to normal data bag item loading if the item isn't actually a
-    # vault item.
-    def chef_vault_item(bag, item)
-      begin
-        require 'chef-vault'
-      rescue LoadError
-        Chef::Log.warn("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.")
-      end
+module ChefVaultItem
+ # This is a nice helper method for the Chef Recipe DSL so you can
+ # write:
+ #   chef_vault_item("secrets", "dbpassword")
+ # Instead of:
+ #   ChefVault::Item.load("secrets", "dbpassword")
+ #
+ # Falls back to normal data bag item loading if the item isn't actually a
+ # vault item.
+ def chef_vault_item(bag, item)
+   begin
+     require 'chef-vault'
+   rescue LoadError
+     Chef::Log.warn("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.")
+   end
 
-      begin
-        ChefVault::Item.load(bag, item)
-      rescue ChefVault::Exceptions::KeysNotFound
-        Chef::DataBagItem.load(bag, item)
-      end
-    end
-  end
+   begin
+     ChefVault::Item.load(bag, item)
+   rescue ChefVault::Exceptions::KeysNotFound
+     Chef::DataBagItem.load(bag, item)
+   end
+ end
 end
+
+class Chef::Recipe ; include ChefVaultItem ; end
+class Chef::Resource ; include ChefVaultItem ; end
