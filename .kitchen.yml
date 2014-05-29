@@ -1,9 +1,12 @@
 ---
 driver_plugin: vagrant
+
 driver_config:
   require_chef_omnibus: true
+
 provisioner:
   name: chef_zero
+  data_path: test/shared
 
 platforms:
   - name: ubuntu-14.04
