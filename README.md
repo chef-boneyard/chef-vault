@@ -146,6 +146,39 @@ end
 Internally, the provider will convert the admins array to a
 comma-delimited string.
 
+When using the `chef_vault_secret` resource, the `data_bag` must exist
+first. If it doesn't, you can create it in your recipe with a
+`ruby_block`:
+
+```ruby
+begin
+  data_bag('secrets')
+rescue
+  ruby_block "create-data_bag-secrets" do
+    block do
+      Chef::DataBag.validate_name!('secrets')
+      databag = Chef::DataBag.new
+      databag.name('secrets')
+      databag.save
+    end
+    action :create
+  end
+end
+```
+
+Or, use the `cheffish` gem, which provides resources for Chef objects
+(nodes, roles, data bags, etc):
+
+```ruby
+chef_data_bag 'secrets'
+```
+
+Note that there is a bug in versions of cheffish prior to 0.5.beta.3.
+Also, cheffish requires the `openssl-pkcs8` gem, which has C
+extensions, so openssl development headers and C build tools need to
+be installed. To use this, you can create a recipe like the one in
+the [test cookbook](test/fixtures/cookbooks/test/recipes/chef_vault_secret.rb).
+
 ## Usage
 
 Include the recipe before using the Chef Vault library in recipes.
