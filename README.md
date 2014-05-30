@@ -66,7 +66,6 @@ declarative state. To get the `knife vault create` behavior, use
 
 * `:create` - *Default action*. Creates the item, or updates it if it
   already exists.
-* `:update` - Same as the `create` action.
 * `:create_if_missing` - Calls the `create` action unless it exists.
 * `:delete` - Deletes the item *and* the item's keys ("id"_keys).
 

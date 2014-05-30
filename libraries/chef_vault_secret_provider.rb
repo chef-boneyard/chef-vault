@@ -45,12 +45,6 @@ class Chef::Provider::ChefVaultSecret < Chef::Provider::LWRPBase
     end
   end
 
-  # the update action does create, because we always want the resource
-  # to be managed with the state declared in the recipe.
-  action :update do
-    action_create
-  end
-
   # this is for those who want the behavior of `knife vault create`.
   action :create_if_missing do
     action_create unless vault_item_exists?
