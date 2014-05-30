@@ -22,3 +22,9 @@ suites:
   - recipe[test]
   attributes:
     dev_mode: true
+
+- name: secret_resource
+  run_list:
+  - recipe[chef-vault]
+  - recipe[test::chef_vault_secret]
+  attributes:

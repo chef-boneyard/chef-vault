@@ -1,0 +1,8 @@
+{
+  "name": "hydroelectric",
+  "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAroTVtRfhrIp8HsDgWOQ6\nwPSR/trQhCJy0izY8cSHK2tlg0H6tH326qXn+cPtdyxKm5y21+z5/Ap2o4Y2Z/xa\nyMPbWUENPCnNgva8dAPQ71+IzbnQTN9SWL6yBEBtC0Ap1mDM8/H1w4xseIAU2pSf\n+ul0Ly8k5LEhyIYxoo+/7FyUJN0J28Tj+tFlSDJtWAuRryvdKRrIODg1tiaCuOkm\nOSM2djB/oyy5xtMky/4iZCaKZO6C37Z1qGOKrU7cZf3eDJxjUjp3MWrWniCOjiha\nbI86ToKsN/Dh4MSXUjvSp7PQRMEZoVNcVb1K6BSNq4FAjadFhR6wfLTV0gYCz5gE\nuwIDAQAB\n-----END PUBLIC KEY-----\n",
+  "validator": false,
+  "admin": true,
+  "json_class": "Chef::ApiClient",
+  "chef_type": "client"
+}
