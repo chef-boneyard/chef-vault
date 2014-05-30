@@ -3,7 +3,8 @@ chef-vault Cookbook
 
 This cookbook is responsible for installing the `chef-vault` gem and
 providing some helper methods to load encrypted data bags that are in
-The Vault.
+The Vault. It also provides a resource that can be used to store
+secrets as a Chef Vault item in a recipe.
 
 Chef Vault is a library by Nordstrom's infrastructure operations team
 that helps manage encrypted data bags.
@@ -14,6 +15,9 @@ that helps manage encrypted data bags.
 
 This cookbook should work on any system/platform that is supported by
 Chef.
+
+This cookbook is specifically tested on Ubuntu and CentOS platforms
+using Test Kitchen. See `.kitchen.yml` for platforms and test suites.
 
 ## Helper Method
 
@@ -44,6 +48,105 @@ this cookbook, but is used in the helper.
   testing, and not as a fall back to avoid issues loading encrypted
   items.
 
+## Resources
+
+### chef_vault_secret
+
+The `chef_vault_secret` resource can be used in recipes to store
+secrets in Chef Vault items. Where possible and relevant, this
+resource attempts to map behavior and functionality to the `knife
+vault` sub-commands.
+
+#### Actions
+
+The actions generally map to the `knife vault` sub-commands, with an
+exception that `create` does an update, because the resource enforces
+declarative state. To get the `knife vault create` behavior, use
+`create_if_missing`.
+
+* `:create` - *Default action*. Creates the item, or updates it if it
+  already exists.
+* `:update` - Same as the `create` action.
+* `:create_if_missing` - Calls the `create` action unless it exists.
+* `:delete` - Deletes the item *and* the item's keys ("id"_keys).
+
+#### Attributes
+
+* `id` - *Name attribute*. The name of the data bag item.
+* `data_bag` - *Required*. The data bag that contains the item.
+* `admins` - A list of admin users who should have access to the item.
+  Corresponds to the "admin" option when using the chef-vault knife
+  plugin. Can be specified as a comma separated string or an array.
+  See examples, below.
+* `clients` - A search query for the nodes' API clients that should
+  have access to the item.
+* `search` - Search query that would match the same used for the
+  clients, gets stored as a field in the item.
+* `raw_data` - The raw data, as a Ruby Hash, that will be stored in
+  the item. See examples, below.
+
+At least one of `admins` or `clients` should be specified, otherwise
+nothing will have access to the item.
+
+#### Examples
+
+From the test cookbook embedded in this repository.
+
+```ruby
+chef_vault_secret 'clean-energy' do
+  data_bag 'green'
+  raw_data({'auth' => 'Forged in a mold'})
+  admins 'hydroelectric'
+  search '*:*'
+end
+```
+
+Assuming that the `green` data bag exists, this will create the
+`clean-energy` item as a ChefVault encrypted item, which also creates
+`clean-energy_keys` that has the list of admins, clients, and the
+shared secrets. For example, the content looks like this in plaintext:
+
+```json
+{
+  "id": "clean-energy",
+  "auth": {
+    "encrypted_data": "y+l7H4okLu4wisryCaIT+7XeAgomcdgFo3v3p6RKWnXvgvimdzjFGMUfdGId\nq+pP\n",
+    "iv": "HLr0uyy9BrieTDmS0TbbmA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}
+```
+
+And the encrypted data decrypted using the specified client:
+
+```sh
+$ knife vault show green clean-energy -z -u hydroelectric -k clients/hydroelectric.pem
+auth: Forged in a mold
+id:   clean-energy
+```
+
+Another example, showing multiple admins allowed access to an item
+using a comma-separated string, or an array:
+
+```ruby
+chef_vault_secret 'root-password' do
+  admins 'jtimberman,paulmooring'
+  data_bag 'secrets'
+  raw_data({'auth' => 'DontUseThisPasswordForRoot'})
+  search '*:*'
+end
+chef_vault_secret 'root-password' do
+  admins ['jtimberman', 'paulmooring']
+  data_bag 'secrets'
+  raw_data({'auth' => 'DontUseThisPasswordForRoot'})
+  search '*:*'
+end
+```
+
+Internally, the provider will convert the admins array to a
+comma-delimited string.
+
 ## Usage
 
 Include the recipe before using the Chef Vault library in recipes.
@@ -57,6 +160,10 @@ Or, use the helper library method:
 
 If you need a specific version of the `chef-vault` RubyGem, then
 specify it with the attribute, `node['chef-vault']['version']`.
+
+To use the `chef_vault_secret` resource in your cookbooks' recipes,
+declare a dependency on this cookbook, and then use the resource as
+described in the Examples above.
 
 ## Contributing
 
