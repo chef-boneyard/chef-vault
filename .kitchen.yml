@@ -1,9 +1,12 @@
 ---
 driver_plugin: vagrant
+
 driver_config:
   require_chef_omnibus: true
+
 provisioner:
   name: chef_zero
+  data_path: test/shared
 
 platforms:
   - name: ubuntu-14.04
@@ -19,3 +22,9 @@ suites:
   - recipe[test]
   attributes:
     dev_mode: true
+
+- name: secret_resource
+  run_list:
+  - recipe[chef-vault]
+  - recipe[test::chef_vault_secret]
+  attributes:
