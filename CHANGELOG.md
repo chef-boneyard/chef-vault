@@ -1,6 +1,11 @@
 chef-vault
 ==========
 
+v1.1.0 (2014-06-02)
+-------------------
+
+- [COOK-4591]: add a resource to create chef-vault-encrypted-items in recipes
+
 v1.0.4 (2014-01-14)
 -------------------
 
