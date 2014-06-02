@@ -1,6 +1,13 @@
 chef-vault
 ==========
 
+v1.1.2 (2014-06-02)
+-------------------
+
+### Bug
+- **[COOK-4591](https://tickets.opscode.com/browse/COOK-4591)** - resource to create chef-vault-encrypted-items in recipes
+
+
 v1.1.0 (2014-06-02)
 -------------------
 
