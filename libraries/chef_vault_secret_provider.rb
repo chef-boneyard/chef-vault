@@ -66,7 +66,7 @@ class Chef::Provider::ChefVaultSecret < Chef::Provider::LWRPBase
       Chef::Log.debug("Attempting to load #{new_resource.id} from #{new_resource.data_bag}")
       json = ::ChefVault::Item.load(new_resource.data_bag, new_resource.id)
       resource = Chef::Resource::ChefVaultSecret.new(new_resource.id)
-      resource.raw_data json
+      resource.raw_data json.to_hash
       current_resource = resource
     rescue Net::HTTPServerException => e
       if e.response.code == '404'
