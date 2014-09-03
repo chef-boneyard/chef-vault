@@ -30,23 +30,18 @@ Instead of:
 
     ChefVault::Item.load("secrets", "dbpassword")
 
-This has logic to allow for development and testing of recipes, see
-__Attributes__ below.
+This has logic in place to fall back to using data bags if the desired item
+isn't encrypted. If the vault item fails to load because of missing vault
+metadata (a `vaultname_keys` data bag), then `chef_vault_item` will attempt to
+load the specified item as a regular Data Bag Item with
+`Chef::DataBagItem.load`. This is intended to be used only for testing, and
+not as a fall back to avoid issues loading encrypted items.
 
 ## Attributes
 
 * `node['chef-vault']['version']` - Specify a version of the
   chef-vault gem if required. Default is `nil`, so the latest version
   will be installed.
-
-The following attribute is special and not specifically related to
-this cookbook, but is used in the helper.
-
-* `node['dev_mode']` - If this is true, `chef_vault_item` will attempt
-  to load the specified item as a regular Data Bag Item with
-  `Chef::DataBagItem.load`. This is intended to be used only for
-  testing, and not as a fall back to avoid issues loading encrypted
-  items.
 
 ## Resources
 
