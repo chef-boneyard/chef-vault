@@ -19,6 +19,10 @@ Chef.
 This cookbook is specifically tested on Ubuntu and CentOS platforms
 using Test Kitchen. See `.kitchen.yml` for platforms and test suites.
 
+The helper methods in this cookbook use the Chef Vault v2 API, so the
+default version will match `~> 2.2` to ensure a reasonably updated
+version of the gem is installed.
+
 ## Helper Method
 
 This cookbook provides a nice helper method for the Chef Recipe DSL so
@@ -36,8 +40,8 @@ __Attributes__ below.
 ## Attributes
 
 * `node['chef-vault']['version']` - Specify a version of the
-  chef-vault gem if required. Default is `nil`, so the latest version
-  will be installed.
+  chef-vault gem if required. Default is `~> 2.2`, as that version was
+  used for testing.
 
 The following attribute is special and not specifically related to
 this cookbook, but is used in the helper.
