@@ -28,8 +28,8 @@ class Chef
     # Instead of:
     #   ChefVault::Item.load("secrets", "dbpassword")
     #
-    # optionally set `node['dev_mode']` to true to fall back to normal
-    # data bag item loading.
+    # Falls back to normal data bag item loading if the item isn't actually a
+    # vault item.
     def chef_vault_item(bag, item)
       begin
         require 'chef-vault'
@@ -37,10 +37,10 @@ class Chef
         Chef::Log.warn("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.")
       end
 
-      if node['dev_mode']
-        Chef::DataBagItem.load(bag, item)
-      else
+      begin
         ChefVault::Item.load(bag, item)
+      rescue ChefVault::Exceptions::KeysNotFound
+        Chef::DataBagItem.load(bag, item)
       end
     end
   end
