@@ -1,6 +1,13 @@
 chef-vault
 ==========
 
+v1.1.4 (2014-09-12)
+-------------------
+
+- Fix loading of current resource in `chef_vault_secret` (Nathan Huff)
+- Allow `chef_vault_item` to fall back to plain data bags
+- Set default version of `chef-vault` gem to one required by libraries
+
 v1.1.2 (2014-06-02)
 -------------------
 
