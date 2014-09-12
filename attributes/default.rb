@@ -17,5 +17,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Set this if you need a specific version of chef-vault
-default['chef-vault']['version'] = nil
+default['chef-vault']['version'] = '~> 2.2'
