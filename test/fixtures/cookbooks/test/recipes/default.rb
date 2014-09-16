@@ -24,3 +24,9 @@ secret = chef_vault_item('secrets', 'dbpassword')
 file '/tmp/chef-vault-secret' do
   content secret['auth']
 end
+
+library_secret = test_chef_vault
+
+file '/tmp/chef-vault-secret-from-library' do
+  content library_secret['auth']
+end
