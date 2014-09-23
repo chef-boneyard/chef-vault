@@ -39,7 +39,7 @@ class Chef
 
       begin
         ChefVault::Item.load(bag, item)
-      rescue ChefVault::Exceptions::KeysNotFound
+      rescue ChefVault::Exceptions::KeysNotFound, ChefVault::Exceptions::SecretDecryption
         Chef::DataBagItem.load(bag, item)
       end
     end
