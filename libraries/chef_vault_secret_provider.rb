@@ -67,15 +67,15 @@ class Chef::Provider::ChefVaultSecret < Chef::Provider::LWRPBase
       json = ::ChefVault::Item.load(new_resource.data_bag, new_resource.id)
       resource = Chef::Resource::ChefVaultSecret.new(new_resource.id)
       resource.raw_data json.to_hash
-      current_resource = resource
+      self.current_resource = resource
     rescue Net::HTTPServerException => e
       if e.response.code == '404'
-        current_resource = resource
+        self.current_resource = nil
       else
         raise
       end
     rescue ChefVault::Exceptions::KeysNotFound
-      current_resource = resource
+      self.current_resource = nil
     rescue OpenSSL::PKey::RSAError
       raise "#{$!.message} - on #{Chef::Config[:client_key]}, is the vault item encrypted with this client/user?"
     end
