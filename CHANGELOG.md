@@ -1,6 +1,10 @@
 chef-vault
 ==========
 
+v1.1.5 (2014-09-25)
+-------------------
+- Adding ChefVault::Exceptions::SecretDecryption exception handling
+
 v1.1.4 (2014-09-12)
 -------------------
 
