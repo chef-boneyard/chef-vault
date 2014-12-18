@@ -43,3 +43,14 @@ node.set['chef-vault']['databag_fallback'] = true
 file '/tmp/chef-vault-secret-no-fallback' do
   content no_fallback_secret["auth"]
 end
+
+secret = chef_vault_item_for_environment('secrets', 'bacon')
+
+file '/tmp/chef-vault-environment-secret' do
+  content secret['type']
+end
+
+library_secret = test_chef_vault_for_environment
+file '/tmp/chef-vault-environment-secret-from-library' do
+  content library_secret['type']
+end

@@ -40,3 +40,10 @@ chef_vault_secret 'clean-energy' do
   admins 'hydroelectric'
   search '*:*'
 end
+
+chef_vault_secret 'dirty-energy' do
+  environment '_default'
+  data_bag 'green'
+  raw_data({'auth' => 'carbon-credits'})
+  admins 'hydroelectric'
+end

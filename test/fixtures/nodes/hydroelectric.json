@@ -1,6 +1,6 @@
 {
   "name": "hydroelectric",
-  "chef_environment": "_default",
+  "chef_environment": "test",
   "run_list": [
 
   ],
