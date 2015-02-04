@@ -4,4 +4,9 @@ describe 'chef-vault::default' do
   describe file('/tmp/chef-vault-secret') do
     its(:content) { should match(/success/) }
   end
+
+  describe file('/tmp/chef-vault-secret-from-library') do
+    its(:content) { should match(/success/) }
+  end
+
 end
