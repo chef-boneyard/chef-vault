@@ -1,6 +1,13 @@
 chef-vault
 ==========
 
+v1.2.0 (2015-02-04)
+-------------------
+
+- COOK-4672: Make the library helper into a module instead of adding into Chef::Recipe
+- Prevent variable masking
+- Fix inverted existence check for `current_resource`
+
 v1.1.5 (2014-09-25)
 -------------------
 - Adding ChefVault::Exceptions::SecretDecryption exception handling

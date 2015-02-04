@@ -203,9 +203,9 @@ contribution process for Chef cookbooks.
 
 ## License and Authors
 
-- Author: Joshua Timberman <joshua@getchef.com>
+- Author: Joshua Timberman <joshua@chef.io>
 - Copyright (c) 2013 Opscode, Inc. <legal@opscode.com>
-- Copyright (c) 2014 Chef Software, Inc. <legal@getchef.com>
+- Copyright (c) 2014-2015 Chef Software, Inc. <legal@chef.io>
 
 License:: Apache License, Version 2.0
 
