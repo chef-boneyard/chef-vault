@@ -93,6 +93,6 @@ class Chef::Provider::ChefVaultSecret < Chef::Provider::LWRPBase
   end
 
   def vault_item_exists?
-    current_resource.nil?
+    !current_resource.nil?
   end
 end
