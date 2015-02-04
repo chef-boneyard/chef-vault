@@ -29,10 +29,7 @@ package 'openssl-dev' do
                end
 end.run_action(:install)
 
-chef_gem 'cheffish' do
-  options '--prerelease'
-  version '0.5.beta.3'
-end
+chef_gem 'cheffish'
 
 require 'cheffish'
 chef_data_bag 'green'
