@@ -21,14 +21,14 @@
 
 
 module ChefVaultItem
- # This is a nice helper method for the Chef Recipe DSL so you can
- # write:
- #   chef_vault_item("secrets", "dbpassword")
- # Instead of:
- #   ChefVault::Item.load("secrets", "dbpassword")
- #
- # Falls back to normal data bag item loading if the item isn't actually a
- # vault item.
+  # This is a nice helper method for the Chef Recipe DSL so you can
+  # write:
+  #   chef_vault_item("secrets", "dbpassword")
+  # Instead of:
+  #   ChefVault::Item.load("secrets", "dbpassword")
+  #
+  # Falls back to normal data bag item loading if the item isn't actually a
+  # vault item.
   def chef_vault_item(bag, item)
     begin
       require 'chef-vault'
