@@ -30,7 +30,7 @@ package 'openssl-dev' do
 end.run_action(:install)
 
 chef_gem 'cheffish' do
-  compile_time true
+  compile_time true if respond_to?(:compile_time)
   action :install
 end
 
