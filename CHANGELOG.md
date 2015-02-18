@@ -1,6 +1,11 @@
 chef-vault
 ==========
 
+v1.2.1 (2015-02-17)
+-------------------
+- Being explicit about usage of the chef_gem's compile_time property.
+- Eliminating future deprecation warnings in Chef 12.1.0.
+
 v1.2.0 (2015-02-04)
 -------------------
 

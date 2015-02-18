@@ -2,9 +2,9 @@
 # Cookbook Name:: chef-vault
 # Recipe:: default
 #
-# Author: Joshua Timberman <joshua@getchef.com>
+# Author: Joshua Timberman <joshua@chef.io>
 #
-# Copyright (c) 2013, Opscode, Inc.
+# Copyright (c) 2013, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
 
 chef_gem 'chef-vault' do
   version node['chef-vault']['version']
+  compile_time true
 end
 
 require 'chef-vault'
