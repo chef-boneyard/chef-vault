@@ -1,6 +1,10 @@
 chef-vault
 ==========
 
+v1.2.3 (2015-02-18)
+-------------------
+- chef_gem Chef::Resource::ChefGem.method_defined?(:compile_time)
+
 v1.2.2 (2015-02-18)
 -------------------
 - Fixing chef_gem for Chef below 12.1.0
