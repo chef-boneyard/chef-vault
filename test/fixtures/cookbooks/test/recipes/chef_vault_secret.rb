@@ -1,6 +1,6 @@
-# Author:: Joshua Timberman <joshua@chef.io>
+# Author:: Joshua Timberman <joshua@getchef.com>
 #
-# Copyright (c) 2014, Chef Software, Inc. <legal@chef.io>
+# Copyright (c) 2014, Chef Software, Inc. <legal@getchef.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,10 +29,7 @@ package 'openssl-dev' do
                end
 end.run_action(:install)
 
-chef_gem 'cheffish' do
-  compile_time true
-  action :install
-end
+chef_gem 'cheffish'
 
 require 'cheffish'
 chef_data_bag 'green'
