@@ -20,6 +20,7 @@
 
 chef_gem 'chef-vault' do
   version node['chef-vault']['version']
+  source node['chef-vault']['gem_source'] if node['chef-vault']['gem_source']
   compile_time true if respond_to?(:compile_time)
 end
 
