@@ -22,6 +22,7 @@ chef_gem 'chef-vault' do
   version node['chef-vault']['version']
   compile_time true if Chef::Resource::ChefGem.instance_methods(false).
                                                include?(:compile_time)
+  source node['chef-vault']['gem_source'] if node['chef-vault']['gem_source']
 end
 
 require 'chef-vault'
