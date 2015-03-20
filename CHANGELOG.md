@@ -1,25 +1,32 @@
 chef-vault
 ==========
 
+v1.2.5 (2015-03-19)
+-------------------
+
+- #22, fixes `chef_gem` compile time usage, also in conjunction with `chef-sugar` and Chef 11
+
 v1.2.4 (2015-02-18)
 -------------------
-- ripping out the chef_gem compile_time stuff
+
+- ripping out the `chef_gem` `compile_time` stuff
 
 v1.2.3 (2015-02-18)
 -------------------
-- chef_gem Chef::Resource::ChefGem.method_defined?(:compile_time)
+
+- `chef_gem` `Chef::Resource::ChefGem.method_defined?(:compile_time)`
 
 v1.2.2 (2015-02-18)
 -------------------
-- Fixing chef_gem for Chef below 12.1.0
+
+- Fixing `chef_gem`c for Chef below 12.1.0
 
 v1.2.1 (2015-02-17)
 -------------------
-- Being explicit about usage of the chef_gem's compile_time property.
+
+- Being explicit about usage of the `chef_gem`'s `compile_time` property.
 - Eliminating future deprecation warnings in Chef 12.1.0.
 
-=======
->>>>>>> parent of 29763ae... updating for Chef 12.1.0
 v1.2.0 (2015-02-04)
 -------------------
 
