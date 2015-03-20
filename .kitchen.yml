@@ -25,4 +25,8 @@ suites:
   run_list:
   - recipe[chef-vault]
   - recipe[test::chef_vault_secret]
-  attributes:
+
+- name: with-sugar
+  run_list:
+  - recipe[chef-sugar]
+  - recipe[chef-vault]
