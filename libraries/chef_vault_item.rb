@@ -36,8 +36,9 @@ module ChefVaultItem
       ChefVault::Item.load(bag, item)
     rescue LoadError, ChefVault::Exceptions::KeysNotFound => err
       Chef::Log.warn("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.") if err.kind_of? LoadError
-      if (fallback and err.kind_of?  ChefVault::Exceptions::KeysNotFound)
+      if fallback
         Chef::Log.warn("Failed to load vault item #{item} from #{bag}, falling back to data bags.")
+        raise "Found a data bag item for #{item}_keys, refusing to fallback to data bag" if Chef::DataBag.load(bag).key? "#{item}_keys"
         Chef::DataBagItem.load(bag, item)
       else
         raise 'Unable to load vault item and databag fallback is disabled'
