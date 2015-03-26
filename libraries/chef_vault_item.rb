@@ -40,7 +40,11 @@ module ChefVaultItem
       ChefVault::Item.load(bag, item)
     else
       # We don't have a vault item, it must be a regular data bag
-      Chef::DataBagItem.load(bag, item)
+      if node['chef-vault']['databag_fallback']
+        Chef::DataBagItem.load(bag, item)
+      else
+        raise "Trying to load a regular data bag item #{item} from #{bag}, and databag_fallback is disabled"
+      end
     end
   end
 end
