@@ -30,16 +30,21 @@ module ChefVaultItem
   # Falls back to normal data bag item loading if the item isn't actually a
   # vault item.
   def chef_vault_item(bag, item)
-    begin
-      require 'chef-vault'
-    rescue LoadError
-      Chef::Log.warn("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.")
-    end
-
-    begin
+    if Chef::DataBag.load(bag).key?("#{item}_keys")
+      # We have a vault item
+      begin
+        require 'chef-vault'
+      rescue LoadError
+        raise("Missing gem 'chef-vault', use recipe[chef-vault] to install it first.")
+      end
       ChefVault::Item.load(bag, item)
-    rescue ChefVault::Exceptions::KeysNotFound, ChefVault::Exceptions::SecretDecryption
-      Chef::DataBagItem.load(bag, item)
+    else
+      # We don't have a vault item, it must be a regular data bag
+      if node['chef-vault']['databag_fallback']
+        Chef::DataBagItem.load(bag, item)
+      else
+        raise "Trying to load a regular data bag item #{item} from #{bag}, and databag_fallback is disabled"
+      end
     end
   end
 end

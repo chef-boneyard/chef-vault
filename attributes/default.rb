@@ -18,3 +18,4 @@
 # limitations under the License.
 #
 default['chef-vault']['version'] = '~> 2.2'
+default['chef-vault']['databag_fallback'] = true
