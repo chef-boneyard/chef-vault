@@ -1,6 +1,12 @@
 chef-vault
 ==========
 
+v1.3.0 (2015-04-09)
+-------------------
+
+- #28, Fixes chef vault item loading and regular data bag fallback
+- #24, Add ability to specify source for chef-vault gem installation
+
 v1.2.5 (2015-03-19)
 -------------------
 
