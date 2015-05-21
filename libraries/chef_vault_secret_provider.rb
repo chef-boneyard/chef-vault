@@ -89,7 +89,6 @@ class Chef::Provider::ChefVaultSecret < Chef::Provider::LWRPBase
     when Array
       admins.join(',')
     end
-    admins
   end
 
   def vault_item_exists?
