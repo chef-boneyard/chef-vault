@@ -1,0 +1,14 @@
+---
+language: ruby
+script:
+  - bin/rubocop
+  - bin/foodcritic .
+  - bin/rspec
+rvm:
+  - 2.1
+branches:
+  only:
+    - master
+builder_args: --jobs 7
+matrix:
+  fast_finish: true

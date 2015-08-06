@@ -1,28 +1,52 @@
-AllCops:
-  Includes:
-    - Berksfile
-    - Gemfile
-    - Rakefile
-    - Thorfile
-    - Guardfile
-  Excludes:
-    - vendor/**
+---
+AlignParameters:
+  Enabled: false
+
+Encoding:
+  Enabled: false
 
 ClassLength:
   Enabled: false
-Documentation:
-  Enabled: false
-Encoding:
-  Enabled: false
-HashSyntax:
-  Enabled: false
-LineLength:
-  Enabled: false
+
 MethodLength:
   Enabled: false
-SignalException:
+
+LineLength:
   Enabled: false
-TrailingComma:
+
+Documentation:
   Enabled: false
-WordArray:
+
+PerceivedComplexity:
+  Enabled: false
+
+CyclomaticComplexity:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false
+
+Style/FirstParameterIndentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'Guardfile'
+    - 'Thorfile'
+    - 'Berksfile'
+    - 'Rakefile'
+    - 'Vagrantfile'
+    - 'test/**/*.rb'
+    - 'bin/*'
+
+Style/GuardClause:
   Enabled: false
