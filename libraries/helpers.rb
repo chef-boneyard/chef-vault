@@ -20,7 +20,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 module ChefVaultCookbook
   # Helper method which provides a Recipe/Resource DSL for wrapping
   # creation of {ChefVault::Item}.
@@ -39,7 +38,7 @@ module ChefVaultCookbook
     elsif node['chef-vault']['databag_fallback']
       Chef::DataBagItem.load(bag, id)
     else
-      raise "Trying to load a regular data bag item #{id} from #{bag}, and databag_fallback is disabled"
+      fail "Trying to load a regular data bag item #{id} from #{bag}, and databag_fallback is disabled"
     end
   end
 

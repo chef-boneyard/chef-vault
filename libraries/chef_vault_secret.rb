@@ -46,8 +46,12 @@ module ChefVaultCookbook
   module Provider
     class ChefVaultSecret < Chef::Provider::LWRPBase
       provides(:chef_vault_secret)
+
       use_inline_resources if defined?(:use_inline_resources)
-      def whyrun_supported?; true; end
+
+      def whyrun_supported?
+        true
+      end
 
       def load_current_resource
         json = ChefVault::Item.load(new_resource.data_bag, new_resource.id)
@@ -63,7 +67,7 @@ module ChefVaultCookbook
         @current_resource = nil if e.response_code == '404'
         raise
       rescue OpenSSL::PKey::RSAError
-        raise "#{$!.message} - on #{Chef::Config[:client_key]}, is the vault item encrypted with this client/user?"
+        raise "#{$ERROR_INFO.message} - on #{Chef::Config[:client_key]}, is the vault item encrypted with this client/user?"
       end
 
       action :create do

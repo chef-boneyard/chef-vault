@@ -19,7 +19,7 @@
 # limitations under the License.
 
 if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
-  chef_gem 'chef-vault' do
+  chef_gem 'chef-vault' do # ~FC009
     source node['chef-vault']['gem_source']
     version node['chef-vault']['version']
     compile_time true

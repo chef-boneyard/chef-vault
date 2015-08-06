@@ -1,6 +1,9 @@
 ---
 language: ruby
-script: bin/rspec
+script:
+  - bin/rubocop
+  - bin/foodcritic .
+  - bin/rspec
 rvm:
   - 2.1
 branches:
