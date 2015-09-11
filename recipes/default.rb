@@ -2,7 +2,7 @@
 # Cookbook Name:: chef-vault
 # Recipe:: default
 #
-# Author: Joshua Timberman <joshua@getchef.com>
+# Author: Joshua Timberman <joshua@chef.io>
 #
 # Copyright (c) 2013, Opscode, Inc.
 #

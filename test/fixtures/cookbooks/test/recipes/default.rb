@@ -2,9 +2,9 @@
 # Cookbook Name:: test
 # Recipe:: default
 #
-# Author:: Joshua Timberman <joshua@getchef.com>
+# Author:: Joshua Timberman <joshua@chef.io>
 #
-# Copyright (c) 2014, Chef Software, Inc. <legal@getchef.com>
+# Copyright (c) 2014, Chef Software, Inc. <legal@chef.io>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

@@ -1,6 +1,6 @@
 #
-# Author:: Joshua Timberman <joshua@getchef.com>
-# Copyright:: Copyright (c) 2014, Chef Software, Inc. <legal@getchef.com>
+# Author:: Joshua Timberman <joshua@chef.io>
+# Copyright:: Copyright (c) 2014, Chef Software, Inc. <legal@chef.io>
 # License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
