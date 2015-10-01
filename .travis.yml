@@ -1,14 +1,12 @@
----
+sudo: false
+cache: bundler
 language: ruby
-script:
-  - bin/rubocop
-  - bin/foodcritic .
-  - bin/rspec
+bundler_args: --without kitchen_common kitchen_vagrant kitchen_cloud
 rvm:
+  - 2.0
   - 2.1
-branches:
-  only:
-    - master
-builder_args: --jobs 7
-matrix:
-  fast_finish: true
+  - 2.2
+script:
+  - bundle exec foodcritic -f any .
+  - bundle exec rubocop
+  - bundle exec rspec --color --format progress
