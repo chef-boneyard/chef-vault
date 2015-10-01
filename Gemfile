@@ -1,9 +1,18 @@
 source 'https://rubygems.org'
-gem 'chef-vault', '~> 2.6'
+
+group :rake do
+  gem 'rake'
+  gem 'tomlrb'
+end
 
 group :lint do
-  gem 'rubocop'
-  gem 'foodcritic'
+  gem 'foodcritic', '~> 5.0'
+  gem 'rubocop', '~> 0.34'
+end
+
+group :unit do
+  gem 'berkshelf',  '~> 3.2'
+  gem 'chefspec',   '~> 4.3'
 end
 
 group :kitchen_common do
@@ -11,31 +20,10 @@ group :kitchen_common do
 end
 
 group :kitchen_vagrant do
-  gem 'kitchen-vagrant', '~> 0.17'
+  gem 'kitchen-vagrant', '~> 0.19'
 end
 
 group :kitchen_cloud do
-  gem 'kitchen-openstack', '~> 1.8'
-end
-
-group :unit do
-  gem 'berkshelf'
-  gem 'chefspec'
-end
-
-group :integration do
-  gem 'serverspec'
-end
-
-group :development do
-  gem 'guard'
-  gem 'guard-kitchen'
-  gem 'guard-rspec'
-  gem 'guard-rubocop'
-  gem 'rake'
-  gem 'stove'
-end
-
-group :doc do
-  gem 'yard'
+  gem 'kitchen-digitalocean'
+  gem 'kitchen-ec2'
 end
