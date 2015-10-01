@@ -1,5 +1,7 @@
 chef-vault
 ==========
+This file is used to list changes made in each version of the chef-vault cookbook.
+
 
 v1.3.1 (2015-09-30)
 -------------------
