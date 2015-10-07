@@ -36,7 +36,7 @@ chef_data_bag 'green'
 
 chef_vault_secret 'clean-energy' do
   data_bag 'green'
-  raw_data({'auth' => 'Forged in a mold'})
+  raw_data('auth' => 'Forged in a mold')
   admins 'hydroelectric'
   search '*:*'
 end
@@ -44,6 +44,6 @@ end
 chef_vault_secret 'dirty-energy' do
   environment '_default'
   data_bag 'green'
-  raw_data({'auth' => 'carbon-credits'})
+  raw_data('auth' => 'carbon-credits')
   admins 'hydroelectric'
 end

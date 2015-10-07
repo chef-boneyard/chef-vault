@@ -36,12 +36,12 @@ node.set['chef-vault']['databag_fallback'] = false
 begin
   no_fallback_secret = chef_vault_item('secrets', 'dbpassword')
 rescue
-  no_fallback_secret = {"auth" => "exception raised"}
+  no_fallback_secret = { 'auth' => 'exception raised' }
 end
 node.set['chef-vault']['databag_fallback'] = true
 
 file '/tmp/chef-vault-secret-no-fallback' do
-  content no_fallback_secret["auth"]
+  content no_fallback_secret['auth']
 end
 
 secret = chef_vault_item_for_environment('secrets', 'bacon')
