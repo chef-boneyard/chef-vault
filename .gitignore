@@ -32,6 +32,7 @@ _Store
 _yardoc
 doc/
 .idea
+*.iml
 
 #chef stuff
 Berksfile.lock
