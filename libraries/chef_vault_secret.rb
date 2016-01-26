@@ -84,7 +84,7 @@ module ChefVaultCookbook
           Chef::Log.debug("#{new_resource.id} search query: '#{new_resource.search}'")
           item.search(new_resource.search)
           if new_resource.clients.nil?
-            Chef::Log.debug("No clients specified. Using search query to discover clients")
+            Chef::Log.debug('No clients specified. Using search query to discover clients')
             item.clients(new_resource.search)
           else
             Chef::Log.debug("#{new_resource.id} clients: '#{new_resource.clients}'")
