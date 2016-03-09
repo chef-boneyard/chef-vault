@@ -23,18 +23,14 @@ if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
     source node['chef-vault']['gem_source']
     version node['chef-vault']['version']
     compile_time true
-    if node['chef-vault']['gem_source'] != nil
-        clear_sources true
-    end
+    clear_sources true if !node['chef-vault']['gem_source'].nil?
   end
 else
   chef_gem 'chef-vault' do
     source node['chef-vault']['gem_source']
     version node['chef-vault']['version']
     action :nothing
-    if node['chef-vault']['gem_source'] != nil
-        clear_sources true
-    end
+    clear_sources true if !node['chef-vault']['gem_source'].nil?
   end.run_action(:install)
 end
 
