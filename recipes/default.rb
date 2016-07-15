@@ -4,7 +4,7 @@
 #
 # Author: Joshua Timberman <joshua@chef.io>
 #
-# Copyright (c) 2013, Opscode, Inc.
+# Copyright (c) 2013-2016, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
     source node['chef-vault']['gem_source']
     version node['chef-vault']['version']
     clear_sources true unless node['chef-vault']['gem_source'].nil?
-    compile_time true
+    compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
   end
 else
   chef_gem 'chef-vault' do
