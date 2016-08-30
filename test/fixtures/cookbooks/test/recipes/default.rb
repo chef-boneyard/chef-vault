@@ -32,13 +32,13 @@ file '/tmp/chef-vault-secret-from-library' do
 end
 
 # Verify that we raise an exception if databag fallback is disabled
-node.set['chef-vault']['databag_fallback'] = false
+node.normal['chef-vault']['databag_fallback'] = false
 begin
   no_fallback_secret = chef_vault_item('secrets', 'dbpassword')
 rescue
   no_fallback_secret = { 'auth' => 'exception raised' }
 end
-node.set['chef-vault']['databag_fallback'] = true
+node.normal['chef-vault']['databag_fallback'] = true
 
 file '/tmp/chef-vault-secret-no-fallback' do
   content no_fallback_secret['auth']
