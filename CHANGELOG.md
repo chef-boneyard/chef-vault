@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## 2.0.0 (2016-09-16)
+- Avoid deprecation notices
+- Add chef_version metadata
+- Testing updates
+- Require Chef 12.1
+
 ## v1.3.3 (2016-03-14)
 
 - Restore Chef 11 compatibility
