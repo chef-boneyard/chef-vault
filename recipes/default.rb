@@ -23,7 +23,7 @@ if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
     source node['chef-vault']['gem_source']
     version node['chef-vault']['version']
     clear_sources true unless node['chef-vault']['gem_source'].nil?
-    compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
+    compile_time true
   end
 else
   chef_gem 'chef-vault' do
