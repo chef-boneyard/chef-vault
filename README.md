@@ -88,8 +88,8 @@ declarative state. To get the `knife vault create` behavior, use
   Corresponds to the "admin" option when using the chef-vault knife
   plugin. Can be specified as a comma separated string or an array.
   See examples, below.
-* `clients` - A search query for the nodes' API clients that should
-  have access to the item.
+* `clients` - Either a Chef::ApiClient object or a search query for the nodes' API clients that should
+  have access to the item. Defaults to using the query specified for `search` 
 * `search` - Search query that would match the same used for the
   clients, gets stored as a field in the item.
 * `raw_data` - The raw data, as a Ruby Hash, that will be stored in

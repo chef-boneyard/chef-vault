@@ -83,8 +83,13 @@ module ChefVaultCookbook
 
           Chef::Log.debug("#{new_resource.id} search query: '#{new_resource.search}'")
           item.search(new_resource.search)
-          Chef::Log.debug("#{new_resource.id} clients: '#{new_resource.clients}'")
-          item.clients([new_resource.clients].flatten.join(',')) unless new_resource.clients.nil?
+          if new_resource.clients.nil?
+            Chef::Log.debug('No clients specified. Using search query to discover clients')
+            item.clients(new_resource.search)
+          else
+            Chef::Log.debug("#{new_resource.id} clients: '#{new_resource.clients}'")
+            item.clients([new_resource.clients].flatten.join(','))
+          end
           Chef::Log.debug("#{new_resource.id} admins (users): '#{new_resource.admins}'")
           item.admins([new_resource.admins].flatten.join(','))
           item.save
