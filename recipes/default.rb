@@ -20,6 +20,7 @@
 
 if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
   chef_gem 'chef-vault' do # ~FC009
+    options node['chef-vault']['gem_options']
     source node['chef-vault']['gem_source']
     version node['chef-vault']['version']
     clear_sources true unless node['chef-vault']['gem_source'].nil?
@@ -27,6 +28,7 @@ if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
   end
 else
   chef_gem 'chef-vault' do
+    options node['chef-vault']['gem_options']
     source node['chef-vault']['gem_source']
     version node['chef-vault']['version']
     clear_sources true unless node['chef-vault']['gem_source'].nil?
