@@ -20,3 +20,4 @@
 default['chef-vault']['version'] = '~> 2.6'
 default['chef-vault']['databag_fallback'] = true
 default['chef-vault']['gem_source'] = nil
+default['chef-vault']['gem_options'] = nil
