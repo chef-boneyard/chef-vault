@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## 2.1.0 (2016-10-14)
+- Remove chef 11 compatibility in chef_gem usage
+- adding options attribute to the chef_gem resource
+
 ## 2.0.0 (2016-09-16)
 - Avoid deprecation notices
 - Add chef_version metadata
