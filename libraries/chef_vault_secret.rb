@@ -100,10 +100,12 @@ module ChefVaultCookbook
       action :delete do
         converge_by("remove #{new_resource.id} and #{new_resource.id}_keys from #{new_resource.data_bag}") do
           chef_data_bag_item new_resource.id do
+            data_bag new_resource.data_bag
             action :delete
           end
 
           chef_data_bag_item [new_resource.id, 'keys'].join('_') do
+            data_bag new_resource.data_bag
             action :delete
           end
         end
