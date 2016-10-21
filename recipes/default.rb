@@ -18,22 +18,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
-  chef_gem 'chef-vault' do # ~FC009
-    options node['chef-vault']['gem_options']
-    source node['chef-vault']['gem_source']
-    version node['chef-vault']['version']
-    clear_sources true unless node['chef-vault']['gem_source'].nil?
-    compile_time true
-  end
-else
-  chef_gem 'chef-vault' do
-    options node['chef-vault']['gem_options']
-    source node['chef-vault']['gem_source']
-    version node['chef-vault']['version']
-    clear_sources true unless node['chef-vault']['gem_source'].nil?
-    action :nothing
-  end.run_action(:install)
-end
-
-require 'chef-vault'
+# empty recipe for backwards compatability purposes
