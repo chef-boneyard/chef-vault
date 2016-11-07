@@ -8,4 +8,7 @@ version '2.1.1'
 
 source_url 'https://github.com/chef-cookbooks/chef-vault'
 issues_url 'https://github.com/chef-cookbooks/chef-vault/issues'
-chef_version '>= 12.1'
+chef_version '>= 12.9'
+
+depends 'compat_resource', '>= 12.16.1'
+gem 'chef-vault'

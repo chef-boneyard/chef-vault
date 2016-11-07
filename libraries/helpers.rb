@@ -20,6 +20,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+require 'chef-vault'
+
 module ChefVaultCookbook
   # Helper method which provides a Recipe/Resource DSL for wrapping
   # creation of {ChefVault::Item}.
