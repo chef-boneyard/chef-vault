@@ -33,6 +33,7 @@ Gemfile.lock
 _yardoc
 doc/
 .idea
+*.iml
 
 # chef stuff
 Berksfile.lock

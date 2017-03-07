@@ -36,7 +36,12 @@ module ChefVaultCookbook
   # @param [String] id Identifier of the data bag item to load.
   def chef_vault_item(bag, id)
     if ChefVault::Item.vault?(bag, id)
-      ChefVault::Item.load(bag, id)
+      auth_params = {}
+      if node['chef-vault']['node_name']
+        auth_params[:node_name] = node['chef-vault']['node_name']
+        auth_params[:client_key_path] = node['chef-vault']['client_key_path']
+      end
+      ChefVault::Item.load(bag, id, auth_params)
     elsif node['chef-vault']['databag_fallback']
       Chef::DataBagItem.load(bag, id)
     else
