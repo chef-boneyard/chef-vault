@@ -1,9 +1,11 @@
-# Use Travis's cointainer based infrastructure
+# Use Travis's container based infrastructure
 sudo: false
+dist: trusty
+
 addons:
   apt:
     sources:
-      - chef-stable-precise
+      - chef-current-trusty
     packages:
       - chefdk
 
