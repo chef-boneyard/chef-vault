@@ -7,10 +7,10 @@ providing some helper methods to load encrypted data bags that are in
 The Vault. It also provides a resource that can be used to store
 secrets as a Chef Vault item in a recipe.
 
-Chef Vault is a library by Nordstrom's infrastructure operations team
-that helps manage encrypted data bags.
+Chef Vault is a library originally written by Nordstrom's infrastructure
+operations team that helps manage encrypted data bags.
 
-* https://github.com/Nordstrom/chef-vault
+* https://github.com/chef/chef-vault
 
 ## Requirements
 
