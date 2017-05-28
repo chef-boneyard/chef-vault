@@ -1,5 +1,6 @@
-chef-vault Cookbook
-===================
+# chef-vault Cookbook
+
+[![Build Status](https://travis-ci.org/chef-cookbooks/chef-vault.svg?branch=master)](https://travis-ci.org/chef-cookbooks/chef-vault) [![Cookbook Version](https://img.shields.io/cookbook/v/chef-vault.svg)](https://supermarket.chef.io/cookbooks/chef-vault)
 
 This cookbook is responsible for installing the `chef-vault` gem and
 providing some helper methods to load encrypted data bags that are in
