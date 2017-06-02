@@ -2,6 +2,14 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## 3.0.0 (2017-06-02)
+
+- Convert the LWRP to a custom resource and require Chef 12.9 or later
+- Use a SPDX standard license string
+- Resolve foodcritic warnings
+- Switch testing to local delivery from Rake
+- Update the readme with proper links to the chef-vault project
+
 ## 2.1.1 (2016-10-18)
 - Fixes deletion of items using chef_vault_secret resource
 
