@@ -10,5 +10,4 @@ source_url 'https://github.com/chef-cookbooks/chef-vault'
 issues_url 'https://github.com/chef-cookbooks/chef-vault/issues'
 chef_version '>= 12.9'
 
-depends 'compat_resource', '>= 12.16.3'
 gem 'chef-vault'
