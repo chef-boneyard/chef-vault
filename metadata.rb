@@ -11,3 +11,5 @@ issues_url 'https://github.com/chef-cookbooks/chef-vault/issues'
 chef_version '>= 12.9'
 
 gem 'chef-vault'
+
+supports 'any'
