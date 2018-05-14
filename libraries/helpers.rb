@@ -44,6 +44,29 @@ module ChefVaultCookbook
     end
   end
 
+  # Helper method that allows for listing the ids of a vault in a recipe.
+  # This method is needed because data_bag() returns the keys along with
+  # the items, so this method strips out the keys for users so that they
+  # don't have to do it in their recipes.
+  # @example
+  # ids = chef_vault('secrets')
+  # log 'Yeah buddy!' if ids[0] == 'bacon'
+  # @param [String] bag Name of the data bag to load from.
+  # @return [Array]
+  def chef_vault(bag)
+    items = []
+    if Chef::DataBag.list.include? bag
+      data_bag(bag).each do |id|
+        pattern = Regexp.new(/_keys/).freeze
+        next if pattern.match?(id)
+        items << id
+      end
+      items
+    else
+      raise "'#{bag}' is not a vault"
+    end
+  end
+
   # Helper method which provides an environment wrapper for a data bag.
   # This allows for easy access to current environment secrets inside
   # of an item.
