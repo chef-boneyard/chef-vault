@@ -58,11 +58,11 @@ end
 items = chef_vault('secrets')
 
 file '/tmp/chef-vault-items' do
-  content items.join(",")
+  content items.join(',')
 end
 
 library_items = test_chef_vault
 
 file '/tmp/chef-vault-items-from-library' do
-  content library_items.join(",")
+  content library_items.join(',')
 end

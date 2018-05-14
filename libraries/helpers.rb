@@ -55,16 +55,13 @@ module ChefVaultCookbook
   # @return [Array]
   def chef_vault(bag)
     items = []
-    if Chef::DataBag.list.include? bag
-      data_bag(bag).each do |id|
-        pattern = Regexp.new(/_keys/).freeze
-        next if pattern.match?(id)
-        items << id
-      end
-      items
-    else
-      raise "'#{bag}' is not a vault"
+    raise "'#{bag}' is not a vault" unless Chef::DataBag.list.include? bag
+    data_bag(bag).each do |id|
+      pattern = Regexp.new(/_keys/).freeze
+      next if pattern.match?(id)
+      items << id
     end
+    items
   end
 
   # Helper method which provides an environment wrapper for a data bag.
