@@ -21,9 +21,9 @@ describe file('/tmp/chef-vault-environment-secret-from-library') do
 end
 
 describe file('/tmp/chef-vault-items') do
-  its(:content) { should match(/exception raised/) }
+  its(:content) { should match(/bacon,dbpassword/) }
 end
 
 describe file('/tmp/chef-vault-items-from-library') do
-  its(:content) { should match(/unicorn/) }
+  its(:content) { should match(/bacon,dbpassword/) }
 end
