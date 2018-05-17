@@ -25,7 +25,7 @@ file '/tmp/chef-vault-secret' do
   content secret['auth']
 end
 
-library_secret = test_chef_vault
+library_secret = test_chef_vault_item
 
 file '/tmp/chef-vault-secret-from-library' do
   content library_secret['auth']
@@ -53,4 +53,16 @@ end
 library_secret = test_chef_vault_for_environment
 file '/tmp/chef-vault-environment-secret-from-library' do
   content library_secret['type']
+end
+
+items = chef_vault('secrets')
+
+file '/tmp/chef-vault-items' do
+  content items.join(',')
+end
+
+library_items = test_chef_vault
+
+file '/tmp/chef-vault-items-from-library' do
+  content library_items.join(',')
 end
