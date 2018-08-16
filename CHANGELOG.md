@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## 3.1.1 (2018-08-16)
+
+- Documenting the chef_vault() method
+- Fix Chef14 compatibility for chef_vault_secret resource
+
 ## 3.1.0 (2018-04-29)
 
 - Remove compat_resource dependency that isn't used anymore
