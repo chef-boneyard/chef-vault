@@ -1,10 +1,10 @@
 #
-# Cookbook Name:: test
+# Cookbook:: test
 # Recipe:: default
 #
 # Author:: Joshua Timberman <joshua@chef.io>
 #
-# Copyright (c) 2014, Chef Software, Inc. <legal@chef.io>
+# Copyright:: 2014-2019, Chef Software, Inc. <legal@chef.io>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,13 +32,13 @@ file '/tmp/chef-vault-secret-from-library' do
 end
 
 # Verify that we raise an exception if databag fallback is disabled
-node.normal['chef-vault']['databag_fallback'] = false
+node.override['chef-vault']['databag_fallback'] = false
 begin
   no_fallback_secret = chef_vault_item('secrets', 'dbpassword')
 rescue
   no_fallback_secret = { 'auth' => 'exception raised' }
 end
-node.normal['chef-vault']['databag_fallback'] = true
+node.override['chef-vault']['databag_fallback'] = true
 
 file '/tmp/chef-vault-secret-no-fallback' do
   content no_fallback_secret['auth']

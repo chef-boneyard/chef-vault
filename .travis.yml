@@ -5,7 +5,6 @@ addons:
     packages:
       - chef-workstation
 
-# Don't `bundle install` which takes about 1.5 mins
 install: echo "skip bundle install"
 
 env:
@@ -20,7 +19,5 @@ before_script:
   - eval "$(chef shell-init bash)"
 script:
   - chef --version
-  - cookstyle --version
-  - foodcritic --version
   - chef exec delivery local all
 

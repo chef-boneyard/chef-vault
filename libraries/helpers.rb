@@ -1,12 +1,11 @@
 #
-# Cookbook Name:: chef-vault
+# Cookbook:: chef-vault
 # Library:: chef_vault_item
 #
 # Author: Joshua Timberman <joshua@opscode.com>
 #
-# Copyright (c) 2013, Opscode, Inc.
-# Copyright (c) 2014, Chef Software, Inc.
-# Copyright (c) 2014, 2015 Bloomberg Finance L.P.
+# Copyright:: 2013-2019, Chef Software, Inc.
+# Copyright:: 2014-2015 Bloomberg Finance L.P.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -77,6 +76,6 @@ module ChefVaultCookbook
   end
 end
 
-Chef::Recipe.send(:include, ChefVaultCookbook)
-Chef::Resource.send(:include, ChefVaultCookbook)
-Chef::Provider.send(:include, ChefVaultCookbook)
+Chef::Recipe.include ChefVaultCookbook
+Chef::Resource.include ChefVaultCookbook
+Chef::Provider.include ChefVaultCookbook
