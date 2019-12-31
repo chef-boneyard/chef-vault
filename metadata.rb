@@ -9,7 +9,7 @@ source_url 'https://github.com/chef-cookbooks/chef-vault'
 issues_url 'https://github.com/chef-cookbooks/chef-vault/issues'
 chef_version '>= 12.9'
 
-if %x(chef-client --version).split[1].to_f < 13
+if `chef-client --version`.split[1].to_f < 13
   gem 'chef-vault', '< 4.0'
 else
   gem 'chef-vault'
