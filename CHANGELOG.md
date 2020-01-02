@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## 4.0.0 (2020-01-02)
+
+This cookkbook now requires Chef Infra Client 13.4+, which ships with the chef-vault gem out of the box. Since the gem is included out of the box we now skip the gem installation via the cookbook.
+
 ## 3.1.2 (2020-01-02)
 
 This release restores compatibility with Chef releases before 13.x by installing chef-vault gem 3.x and removing the usage of .match? in the helper library. If you're on Chef 12 it is beyond time to upgrade. Chef 12 went EOL April 2018 and includes Ruby 2.3 which went EOL March 2019. Since that time multiple CVEs have come out in Ruby, openSSL, and several other libraries that are used by the chef-client. If you or your business value security then upgrade.
