@@ -56,7 +56,7 @@ module ChefVaultCookbook
     raise "'#{bag}' is not a vault" unless Chef::DataBag.list.include? bag
     pattern = Regexp.new(/_keys$/).freeze
     data_bag(bag).each_with_object([]) do |id, acc|
-      acc << id unless pattern.match?(id)
+      acc << id unless id =~ pattern
     end
   end
 

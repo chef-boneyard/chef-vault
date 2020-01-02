@@ -3,6 +3,8 @@ driver:
 
 provisioner:
   name: chef_zero
+  product_name: chef
+  product_version: 12
   nodes_path: test/fixtures/nodes
   clients_path: test/fixtures/clients
   environments_path: test/fixtures/environments
