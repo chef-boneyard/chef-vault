@@ -9,6 +9,6 @@ source_url 'https://github.com/chef-cookbooks/chef-vault'
 issues_url 'https://github.com/chef-cookbooks/chef-vault/issues'
 chef_version '>= 12.9'
 
-gem 'chef-vault', '< 4.0'
+gem 'chef-vault'
 
 supports 'any'
