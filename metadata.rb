@@ -7,8 +7,6 @@ version '3.1.2'
 
 source_url 'https://github.com/chef-cookbooks/chef-vault'
 issues_url 'https://github.com/chef-cookbooks/chef-vault/issues'
-chef_version '>= 12.9'
-
-gem 'chef-vault'
+chef_version '>= 13.4'
 
 supports 'any'

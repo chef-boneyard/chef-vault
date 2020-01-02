@@ -2,10 +2,12 @@
 
 [![Build Status](https://travis-ci.org/chef-cookbooks/chef-vault.svg?branch=master)](https://travis-ci.org/chef-cookbooks/chef-vault) [![Cookbook Version](https://img.shields.io/cookbook/v/chef-vault.svg)](https://supermarket.chef.io/cookbooks/chef-vault)
 
-This cookbook is responsible for installing the `chef-vault` gem and
-providing some helper methods to load encrypted data bags that are in
-The Vault. It also provides a resource that can be used to store
-secrets as a Chef Vault item in a recipe.
+This cookbook provides helper methods to load encrypted data bags that are in
+The Vault. It also provides a resource that can be used to store secrets as
+a Chef Vault item in a recipe.
+
+As of version 4.0 of the cookbook, we no longer install the chef-vault
+gem as this is included in chef-client 13.4+.
 
 Chef Vault is a library originally written by Nordstrom's infrastructure
 operations team that helps manage encrypted data bags.
@@ -15,14 +17,10 @@ operations team that helps manage encrypted data bags.
 ## Requirements
 
 This cookbook should work on any system/platform that is supported by
-Chef.
+Chef Infra.
 
 This cookbook is specifically tested on Ubuntu and CentOS platforms
 using Test Kitchen. See `.kitchen.yml` for platforms and test suites.
-
-The helper methods in this cookbook use the Chef Vault v2 API, so the
-default version will match `~> 2.2` to ensure a reasonably updated
-version of the gem is installed.
 
 ## Helper Methods
 
@@ -226,8 +224,7 @@ contribution process for Chef cookbooks.
 ## License and Authors
 
 - Author: Joshua Timberman <joshua@chef.io>
-- Copyright (c) 2013 Opscode, Inc. <legal@opscode.com>
-- Copyright (c) 2014-2015 Chef Software, Inc. <legal@chef.io>
+- Copyright (c) 2013-2019 Chef Software, Inc. <legal@chef.io>
 - Copyright (c) 2014, 2015 Bloomberg Finance L.P.
 
 License:: Apache License, Version 2.0
