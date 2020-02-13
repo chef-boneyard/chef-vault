@@ -16,8 +16,6 @@
 #
 # This recipe is for testing the chef_vault_secret resource.
 
-require 'cheffish'
-
 chef_data_bag 'green'
 
 chef_vault_secret 'clean-energy' do

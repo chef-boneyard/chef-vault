@@ -20,13 +20,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[chef-vault]
       - recipe[test]
   - name: secret_resource
     run_list:
-      - recipe[chef-vault]
       - recipe[test::chef_vault_secret]
-  - name: with-sugar
-    run_list:
-      - recipe[chef-sugar]
-      - recipe[chef-vault]
