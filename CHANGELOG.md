@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: resources/secret.rb:11:44 refactor: `ChefRedundantCode/StringPropertyWithNilDefault`
+
 ## 4.0.0 (2020-01-02)
 
 This cookkbook now requires Chef Infra Client 13.4+, which ships with the chef-vault gem out of the box. Since the gem is included out of the box we now skip the gem installation via the cookbook.

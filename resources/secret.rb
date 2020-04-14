@@ -8,7 +8,7 @@ property :admins, [String, Array], required: true, desired_state: false
 property :clients, [String, Array], desired_state: false
 property :search, String, default: '*:*', desired_state: false
 property :raw_data, [Hash, Mash], default: {}
-property :environment, [String, NilClass], default: nil, nillable: true, desired_state: false
+property :environment, [String, NilClass], nillable: true, desired_state: false
 
 load_current_value do
   begin
