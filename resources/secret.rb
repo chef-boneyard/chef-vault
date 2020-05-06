@@ -61,7 +61,7 @@ action :delete do
     end
 
     chef_data_bag_item [new_resource.id, 'keys'].join('_') do
-      data_bag new_resource.data_bag
+ $    data_bag new_resource.data_bag
       action :delete
     end
   end
