@@ -1,6 +1,6 @@
 require 'chef-vault'
 
-resource_name :chef_vault_secret
+provides :chef_vault_secret
 
 property :id, String, name_property: true
 property :data_bag, String, required: true, desired_state: false
