@@ -2,10 +2,11 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
-## Unreleased
+## 4.0.2 (2020-06-02)
 
-- resolved cookstyle error: resources/secret.rb:3:1 warning: `ChefDeprecations/ResourceUsesOnlyResourceName`
-- resolved cookstyle error: resources/secret.rb:11:44 refactor: `ChefRedundantCode/StringPropertyWithNilDefault`
+- Cookstyle fixes including Chef Infra Client 16 compatibility - [@xorimabot](https://github.com/xorimabot)
+  - resolved cookstyle error: resources/secret.rb:3:1 warning: `ChefDeprecations/ResourceUsesOnlyResourceName`
+  - resolved cookstyle error: resources/secret.rb:11:44 refactor: `ChefRedundantCode/StringPropertyWithNilDefault`
 
 ## 4.0.0 (2020-01-02)
 
