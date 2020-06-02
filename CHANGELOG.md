@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the chef-vault cookboo
 
 ## Unreleased
 
+- resolved cookstyle error: resources/secret.rb:3:1 warning: `ChefDeprecations/ResourceUsesOnlyResourceName`
 - resolved cookstyle error: resources/secret.rb:11:44 refactor: `ChefRedundantCode/StringPropertyWithNilDefault`
 
 ## 4.0.0 (2020-01-02)
