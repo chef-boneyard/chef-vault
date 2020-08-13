@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## 4.0.3 (2020-08-13)
+
+- Add resource_name in addition to provides - [@tas50](https://github.com/tas50)
+
 ## 4.0.2 (2020-06-02)
 
 - Cookstyle fixes including Chef Infra Client 16 compatibility - [@xorimabot](https://github.com/xorimabot)
