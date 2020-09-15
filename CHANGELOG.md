@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: libraries/helpers.rb:79:1 refactor: `ChefCorrectness/IncorrectLibraryInjection`
+- resolved cookstyle error: libraries/helpers.rb:81:1 refactor: `ChefCorrectness/IncorrectLibraryInjection`
+
 ## 4.0.3 (2020-08-13)
 
 - Add resource_name in addition to provides - [@tas50](https://github.com/tas50)
