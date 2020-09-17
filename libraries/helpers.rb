@@ -78,4 +78,3 @@ end
 
 Chef::DSL::Recipe.include ChefVaultCookbook
 Chef::Resource.include ChefVaultCookbook
-Chef::DSL::Recipe.include ChefVaultCookbook
