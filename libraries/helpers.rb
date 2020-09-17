@@ -76,6 +76,6 @@ module ChefVaultCookbook
   end
 end
 
-Chef::Recipe.include ChefVaultCookbook
+Chef::DSL::Recipe.include ChefVaultCookbook
 Chef::Resource.include ChefVaultCookbook
-Chef::Provider.include ChefVaultCookbook
+Chef::DSL::Recipe.include ChefVaultCookbook
