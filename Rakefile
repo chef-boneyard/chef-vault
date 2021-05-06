@@ -44,25 +44,21 @@ end
 
 # Integration tests. Kitchen.ci
 namespace :integration do
-  begin
-    require 'kitchen/rake_tasks'
+  require 'kitchen/rake_tasks'
 
-    desc 'Run kitchen integration tests'
-    Kitchen::RakeTasks.new
-  rescue StandardError => e
-    puts ">>> Kitchen error: #{e}, omitting #{task.name}" unless ENV['CI']
-  end
+  desc 'Run kitchen integration tests'
+  Kitchen::RakeTasks.new
+rescue StandardError => e
+  puts ">>> Kitchen error: #{e}, omitting #{task.name}" unless ENV['CI']
 end
 
 namespace :supermarket do
-  begin
-    require 'stove/rake_task'
+  require 'stove/rake_task'
 
-    desc 'Publish cookbook to Supermarket with Stove'
-    Stove::RakeTask.new
-  rescue LoadError => e
-    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
-  end
+  desc 'Publish cookbook to Supermarket with Stove'
+  Stove::RakeTask.new
+rescue LoadError => e
+  puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
 end
 
 # Default

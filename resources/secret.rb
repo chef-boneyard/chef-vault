@@ -12,19 +12,17 @@ property :raw_data, [Hash, Mash], default: {}
 property :environment, [String, NilClass], nillable: true, desired_state: false
 
 load_current_value do
-  begin
-    item = ChefVault::Item.load(data_bag, id)
-    raw_data item.raw_data
-    clients item.get_clients
-    admins item.get_admins
-    search item.search
-  rescue ChefVault::Exceptions::SecretDecryption
-    current_value_does_not_exist!
-  rescue ChefVault::Exceptions::KeysNotFound
-    current_value_does_not_exist!
-  rescue Net::HTTPServerException => e
-    current_value_does_not_exist! if e.response_code == '404'
-  end
+  item = ChefVault::Item.load(data_bag, id)
+  raw_data item.raw_data
+  clients item.get_clients
+  admins item.get_admins
+  search item.search
+rescue ChefVault::Exceptions::SecretDecryption
+  current_value_does_not_exist!
+rescue ChefVault::Exceptions::KeysNotFound
+  current_value_does_not_exist!
+rescue Net::HTTPServerException => e
+  current_value_does_not_exist! if e.response_code == '404'
 end
 
 default_action :create

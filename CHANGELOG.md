@@ -2,6 +2,32 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: Rakefile:47:1 convention: `Layout/EmptyLinesAroundBlockBody`
+- resolved cookstyle error: Rakefile:47:1 convention: `Layout/TrailingWhitespace`
+- resolved cookstyle error: Rakefile:47:3 convention: `Style/RedundantBegin`
+- resolved cookstyle error: Rakefile:48:1 convention: `Layout/IndentationWidth`
+- resolved cookstyle error: Rakefile:52:3 convention: `Layout/RescueEnsureAlignment`
+- resolved cookstyle error: Rakefile:54:1 convention: `Layout/EmptyLinesAroundBlockBody`
+- resolved cookstyle error: Rakefile:54:1 convention: `Layout/TrailingWhitespace`
+- resolved cookstyle error: Rakefile:58:1 convention: `Layout/EmptyLinesAroundBlockBody`
+- resolved cookstyle error: Rakefile:58:1 convention: `Layout/TrailingWhitespace`
+- resolved cookstyle error: Rakefile:58:3 convention: `Style/RedundantBegin`
+- resolved cookstyle error: Rakefile:59:1 convention: `Layout/IndentationWidth`
+- resolved cookstyle error: Rakefile:63:3 convention: `Layout/RescueEnsureAlignment`
+- resolved cookstyle error: Rakefile:65:1 convention: `Layout/EmptyLinesAroundBlockBody`
+- resolved cookstyle error: Rakefile:65:1 convention: `Layout/TrailingWhitespace`
+- resolved cookstyle error: resources/secret.rb:15:1 convention: `Layout/EmptyLinesAroundBlockBody`
+- resolved cookstyle error: resources/secret.rb:15:1 convention: `Layout/TrailingWhitespace`
+- resolved cookstyle error: resources/secret.rb:15:3 convention: `Style/RedundantBegin`
+- resolved cookstyle error: resources/secret.rb:16:1 convention: `Layout/IndentationWidth`
+- resolved cookstyle error: resources/secret.rb:21:3 convention: `Layout/RescueEnsureAlignment`
+- resolved cookstyle error: resources/secret.rb:23:3 convention: `Layout/RescueEnsureAlignment`
+- resolved cookstyle error: resources/secret.rb:25:3 convention: `Layout/RescueEnsureAlignment`
+- resolved cookstyle error: resources/secret.rb:27:1 convention: `Layout/EmptyLinesAroundBlockBody`
+- resolved cookstyle error: resources/secret.rb:27:1 convention: `Layout/TrailingWhitespace`
+
 ## 4.0.3 (2020-08-13)
 
 - Add resource_name in addition to provides - [@tas50](https://github.com/tas50)
