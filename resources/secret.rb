@@ -1,6 +1,7 @@
 require 'chef-vault'
 
 provides :chef_vault_secret
+unified_mode true
 resource_name :chef_vault_secret
 
 property :id, String, name_property: true

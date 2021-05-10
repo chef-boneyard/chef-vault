@@ -4,6 +4,7 @@ This file is used to list changes made in each version of the chef-vault cookboo
 
 ## Unreleased
 
+- resolved cookstyle error: resources/secret.rb:1:1 refactor: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
 - resolved cookstyle error: Rakefile:47:1 convention: `Layout/EmptyLinesAroundBlockBody`
 - resolved cookstyle error: Rakefile:47:1 convention: `Layout/TrailingWhitespace`
 - resolved cookstyle error: Rakefile:47:3 convention: `Style/RedundantBegin`
