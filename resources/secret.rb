@@ -1,5 +1,7 @@
 require 'chef-vault'
 
+unified_mode true
+
 provides :chef_vault_secret
 resource_name :chef_vault_secret
 

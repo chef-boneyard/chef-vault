@@ -3,6 +3,10 @@ driver:
 
 provisioner:
   name: chef_zero
+  product_name: chef
+  enforce_idempotency: true
+  multiple_converge: 2
+  deprecations_as_errors: true
   nodes_path: test/fixtures/nodes
   clients_path: test/fixtures/clients
   environments_path: test/fixtures/environments
@@ -10,10 +14,14 @@ provisioner:
   client_rb:
     environment: test
 
+verifier:
+  name: inspec
+
 platforms:
-  - name: centos-6
   - name: centos-7
   - name: centos-8
+  - name: debian-9
+  - name: debian-10
   - name: ubuntu-16.04
   - name: ubuntu-18.04
 
@@ -22,5 +30,8 @@ suites:
     run_list:
       - recipe[test]
   - name: secret_resource
+    provisioner:
+      enforce_idempotency: false
+      multiple_converge: 1
     run_list:
       - recipe[test::chef_vault_secret]

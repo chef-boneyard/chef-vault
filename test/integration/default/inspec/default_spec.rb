@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe file('/tmp/chef-vault-secret') do
   its(:content) { should match(/success/) }
 end

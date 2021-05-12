@@ -7,6 +7,6 @@ version '4.0.3'
 
 source_url 'https://github.com/chef-cookbooks/chef-vault'
 issues_url 'https://github.com/chef-cookbooks/chef-vault/issues'
-chef_version '>= 13.4'
+chef_version '>= 15.3'
 
 supports 'any'

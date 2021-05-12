@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the chef-vault cookbook.
 
+## Unreleased
+
+- Add support for Chef 17 by enabling `unified_mode` to resources
+- Increase required Chef Infra Client version to >= 15.3
+- Add `kitchen.dokken.yml` and enable Github CI testing
+- Convert ServerSpec to InSpec
+
 ## 4.0.3 (2020-08-13)
 
 - Add resource_name in addition to provides - [@tas50](https://github.com/tas50)
