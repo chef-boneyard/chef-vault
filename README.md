@@ -14,6 +14,10 @@ operations team that helps manage encrypted data bags.
 
 * https://github.com/chef/chef-vault
 
+## Deprecation
+
+The chef-vault gem resources and helpers from this cookbook now ship natively in Chef Infra Client 16 and later. With this functionality now built in this cookbook is no longer receiving updates. Please upgrade to a release of Chef Infra Client with this functionality built in so you can remove this dependency from your infrastructure.
+
 ## Requirements
 
 This cookbook should work on any system/platform that is supported by
